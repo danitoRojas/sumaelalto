@@ -1,0 +1,60 @@
+{% include 'public/head.html' %}
+<!-- start banner Area -->
+<section class="about-banner relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="about-content col-lg-12">
+        <h1 class="text-white">Hospitales</h1>
+        <p class="text-white link-nav">
+          <a href="index.html">Inicio </a>
+          <span class="lnr lnr-arrow-right"></span>
+          <a href="hotels.html"> Hospitales</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End banner Area -->
+
+<section class="home-about-area">
+  <div class="container-fluid">
+    <div class="row align-items-center justify-content-end">
+      <div class="col-lg-6 col-md-12 home-about-left">
+        <!-- frm_especialidades.html -->
+        <h1>{{ data_especialidades[0][1] }}</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Especialidad</th>
+              <th>Descripción Especialidad</th>
+              <!-- Add more columns as needed -->
+            </tr>
+          </thead>
+          <tbody>
+            {% for especialidad in data_especialidades %}
+            <tr>
+              <td>{{ especialidad[2] }}</td>
+              <td>{{ especialidad[3] }}</td>
+              <!-- Add more cells as needed -->
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-6 col-md-12 home-about-right no-padding">
+        <br />
+        <iframe
+          src="{{data_especialidades[0][4]}}"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <br /><br />
+      </div>
+    </div>
+  </div>
+</section>

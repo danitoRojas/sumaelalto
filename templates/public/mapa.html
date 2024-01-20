@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="/static/css/leaflet.css" />
+    <link rel="stylesheet" href="/static/css/qgis2web.css" />
+    <link rel="stylesheet" href="/static/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/static/css/leaflet-search.css" />
+    <link rel="stylesheet" href="/static/css/mapastyle.css" />
+    <title></title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="/static/js/qgis2web_expressions.js"></script>
+    <script src="/static/js/leaflet.js"></script>
+    <script src="/static/js/leaflet.rotatedMarker.js"></script>
+    <script src="/static/js/leaflet.pattern.js"></script>
+    <script src="/static/js/leaflet-hash.js"></script>
+    <script src="/static/js/Autolinker.min.js"></script>
+    <script src="/static/js/rbush.min.js"></script>
+    <script src="/static/js/labelgun.min.js"></script>
+    <script src="/static/js/labels.js"></script>
+    <script src="/static/js/leaflet-search.js"></script>
+    <script src="/static/data/hospitaldos_2.js"></script>
+    <script>
+      var map = L.map("map", {
+        zoomControl: true,
+        maxZoom: 28,
+        minZoom: 1,
+      }).fitBounds([
+        [-16.572309247660908, -68.21896462612351],
+        [-16.52747697828222, -68.17113445423318],
+      ]);
+      var hash = new L.Hash(map);
+      map.attributionControl.setPrefix(
+        '<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>'
+      );
+      var autolinker = new Autolinker({
+        truncate: { length: 30, location: "smart" },
+      });
+      var bounds_group = new L.featureGroup([]);
+      function setBounds() {}
+      map.createPane("pane_GoogleSatellite_0");
+      map.getPane("pane_GoogleSatellite_0").style.zIndex = 400;
+      var layer_GoogleSatellite_0 = L.tileLayer(
+        "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+        {
+          pane: "pane_GoogleSatellite_0",
+          opacity: 1.0,
+          attribution:
+            '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+          minZoom: 1,
+          maxZoom: 28,
+          minNativeZoom: 0,
+          maxNativeZoom: 20,
+        }
+      );
+      layer_GoogleSatellite_0;
+      map.createPane("pane_GoogleRoad_1");
+      map.getPane("pane_GoogleRoad_1").style.zIndex = 401;
+      var layer_GoogleRoad_1 = L.tileLayer(
+        "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+        {
+          pane: "pane_GoogleRoad_1",
+          opacity: 0.701,
+          attribution:
+            '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+          minZoom: 1,
+          maxZoom: 28,
+          minNativeZoom: 0,
+          maxNativeZoom: 20,
+        }
+      );
+      layer_GoogleRoad_1;
+      map.addLayer(layer_GoogleRoad_1);
+      function pop_hospitaldos_2(feature, layer) {
+        var popupContent =
+          '<table>\
+                    <tr>\
+                        <th scope="row">nombre</th>\
+                        <td>' +
+          (feature.properties["nombre"] !== null
+            ? autolinker.link(feature.properties["nombre"].toLocaleString())
+            : "") +
+          '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">direccion</th>\
+                        <td>' +
+          (feature.properties["direccion"] !== null
+            ? autolinker.link(feature.properties["direccion"].toLocaleString())
+            : "") +
+          '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">celular</th>\
+                        <td>' +
+          (feature.properties["celular"] !== null
+            ? autolinker.link(feature.properties["celular"].toLocaleString())
+            : "") +
+          '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">nivel</th>\
+                        <td>' +
+          (feature.properties["nivel"] !== null
+            ? autolinker.link(feature.properties["nivel"].toLocaleString())
+            : "") +
+          '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">nombre_director</th>\
+                        <td>' +
+          (feature.properties["nombre_director"] !== null
+            ? autolinker.link(
+                feature.properties["nombre_director"].toLocaleString()
+              )
+            : "") +
+          '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">atencion</th>\
+                        <td>' +
+          (feature.properties["atencion"] !== null
+            ? autolinker.link(feature.properties["atencion"].toLocaleString())
+            : "") +
+          "</td>\
+                    </tr>\
+                </table>";
+        layer.bindPopup(popupContent, { maxHeight: 400 });
+      }
+
+      function style_hospitaldos_2_0() {
+        return {
+          pane: "pane_hospitaldos_2",
+          rotationAngle: 0.0,
+          rotationOrigin: "center center",
+          icon: L.icon({
+            iconUrl: "/static/markers/image_new.svg",
+            iconSize: [68.39999999999999, 68.39999999999999],
+          }),
+          interactive: true,
+        };
+      }
+      map.createPane("pane_hospitaldos_2");
+      map.getPane("pane_hospitaldos_2").style.zIndex = 402;
+      map.getPane("pane_hospitaldos_2").style["mix-blend-mode"] = "normal";
+      var layer_hospitaldos_2 = new L.geoJson(json_hospitaldos_2, {
+        attribution: "",
+        interactive: true,
+        dataVar: "json_hospitaldos_2",
+        layerName: "layer_hospitaldos_2",
+        pane: "pane_hospitaldos_2",
+        onEachFeature: pop_hospitaldos_2,
+        pointToLayer: function (feature, latlng) {
+          var context = {
+            feature: feature,
+            variables: {},
+          };
+          return L.marker(latlng, style_hospitaldos_2_0(feature));
+        },
+      });
+      bounds_group.addLayer(layer_hospitaldos_2);
+      map.addLayer(layer_hospitaldos_2);
+      var baseMaps = {};
+      L.control
+        .layers(baseMaps, {
+          '<img src="/static/legend/hospitaldos_2.png" /> hospitaldos':
+            layer_hospitaldos_2,
+          "Google Road": layer_GoogleRoad_1,
+          "Google Satellite": layer_GoogleSatellite_0,
+        })
+        .addTo(map);
+      setBounds();
+      var i = 0;
+      layer_hospitaldos_2.eachLayer(function (layer) {
+        var context = {
+          feature: layer.feature,
+          variables: {},
+        };
+        layer.bindTooltip(
+          layer.feature.properties["nombre"] !== null
+            ? String(
+                "<div style=\"color: #000000; font-size: 10pt; font-family: 'Lucida Bright', sans-serif;\">" +
+                  layer.feature.properties["nombre"]
+              ) + "</div>"
+            : "",
+          { permanent: true, offset: [-0, -16], className: "css_hospitaldos_2" }
+        );
+        labels.push(layer);
+        totalMarkers += 1;
+        layer.added = true;
+        addLabel(layer, i);
+        i++;
+      });
+      map.addControl(
+        new L.Control.Search({
+          layer: layer_hospitaldos_2,
+          initial: false,
+          hideMarkerOnCollapse: true,
+          propertyName: "nombre",
+        })
+      );
+      document.getElementsByClassName("search-button")[0].className +=
+        " fa fa-binoculars";
+      resetLabels([layer_hospitaldos_2]);
+      map.on("zoomend", function () {
+        resetLabels([layer_hospitaldos_2]);
+      });
+      map.on("layeradd", function () {
+        resetLabels([layer_hospitaldos_2]);
+      });
+      map.on("layerremove", function () {
+        resetLabels([layer_hospitaldos_2]);
+      });
+    </script>
+  </body>
+</html>

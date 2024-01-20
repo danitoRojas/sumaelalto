@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/static/css/logstyles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="/static/js/validar.js"></script>
+    <title>Formulario de inicio de sesión y registro</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="acceso-login" method="post" class="sign-in-form">
+            <h2 class="title">¡BIENVENIDO/A!</h2>
+
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input
+                type="email"
+                placeholder="Correo"
+                id="exampleInputEmail1"
+                name="txtCorreo"
+              />
+            </div>
+
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                placeholder="Contraseña"
+                id="exampleInputPassword1"
+                name="txtPassword"
+                required
+              />
+            </div>
+
+            <input type="submit" value="Ingresar" class="btn solid" />
+            <p class="social-text">O inicia sesión con plataformas sociales</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+
+          <!-- ###  Tabla   Registro ##### por multiples pasos -->
+          <!-- Registro por multiples pasos -->
+          <form
+            method="POST"
+            action="{{ url_for('agregar') }}"
+            class="sign-up-form"
+          >
+            <h2 class="title">Registrarse</h2>
+            <div class="signup-step step-1">
+              <h2 class="title">Paso 1: Información básica</h2>
+
+              <!-- ########Campos del primer paso -->
+              <!--   Campo 1 del paso 1 ###########-->
+              <div class="input-field">
+                <i class="fas fa-envelope"></i>
+                <input
+                  type="email"
+                  placeholder="Correo electrónico"
+                  id="correo"
+                  name="correo"
+                  required
+                />
+              </div>
+
+              <!-- Campo 1 del paso 1 -->
+              <!-- Campo 2 del paso 1 -->
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input
+                  type="password"
+                  placeholder="Contraseña"
+                  id="password"
+                  name="password"
+                  required
+                />
+              </div>
+
+              <!-- Campo 2 del paso 1 -->
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input
+                  type="number"
+                  placeholder="id"
+                  id="id_rol"
+                  name="id_rol"
+                  required
+                />
+              </div>
+
+              <!-- Campo 3 del paso 1 -->
+
+              <!-- Campo 3 del paso 1 -->
+
+              <!-- ######### Campo 2 del paso 1 ###########-->
+
+              <input
+                type="submit"
+                class="btn next-step"
+                value="Siguiente"
+                data-step="2"
+              />
+
+              <!--Debajo de boton siguiente-->
+              <p class="social-text">O registrarse con plataformas sociales</p>
+              <div class="social-media">
+                <a href="#" class="social-icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="signup-step step-2">
+              <h2 class="title">Paso 2: Detalles adicionales</h2>
+
+              <!-- Campos del segundo paso -->
+
+              <!-- Campo 1 del paso 2 -->
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  placeholder="Nombre"
+                  id="nombre"
+                  name="nombre"
+                  required
+                />
+              </div>
+              <!-- Campo 1 del paso 2 -->
+
+              <!-- Campo 2 del paso 2 -->
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  placeholder="Apellidos"
+                  id="apellidos"
+                  name="apellidos"
+                  required
+                />
+              </div>
+              <!-- Campo 2 del paso 2 -->
+
+              {% if error_message3 %}
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <script>
+                window.onload = function () {
+                  Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "{{ error_message3 }}",
+                  });
+                };
+              </script>
+              {% endif %}
+              <!-- Campo 3 del paso 2 -->
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input
+                  type="number"
+                  placeholder="CI"
+                  id="ci"
+                  name="ci"
+                  min=""
+                  max="999999999"
+                  required
+                />
+              </div>
+              <!-- Campo 3 del paso 2 -->
+
+              <!-- Campo 4 del paso 2 -->
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input
+                  type="date"
+                  placeholder="Fecha Nacimiento"
+                  id="fecha_nacimiento"
+                  name="fecha_nacimiento"
+                  min="1923-01-01"
+                  max="{{fecha_actual}}"
+                />
+              </div>
+              <!-- Campo 4 del paso 2 -->
+
+              <input
+                type="button"
+                class="btn prev-step"
+                value="Anterior"
+                data-step="1"
+              />
+              <input
+                type="button"
+                class="btn next-step"
+                value="Siguiente"
+                data-step="3"
+              />
+            </div>
+
+            <!-- Agrega más pasos si es necesario -->
+
+            <div class="signup-step step-3">
+              <h2 class="title">Paso 3: Detalles adicionales</h2>
+
+              <!-- Campos del segundo paso -->
+
+              <!-- Campo 1 del paso 3 -->
+              <div class="">
+                <i class="fas fa-user"></i>
+
+                <input
+                  type="radio"
+                  id="genero"
+                  name="genero"
+                  value="F"
+                  required
+                />
+                Femenino
+
+                <input
+                  type="radio"
+                  id="genero"
+                  name="genero"
+                  value="M"
+                  required
+                />
+                Masculino
+                <br />
+              </div>
+              <!-- Campo 1 del paso 3 -->
+              {% if error_message %}
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <script>
+                window.onload = function () {
+                  Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "{{ error_message }}",
+                  });
+                };
+              </script>
+              {% endif %} {% if error_message1 %}
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <script>
+                window.onload = function () {
+                  Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "{{ error_message1 }}",
+                  });
+                };
+              </script>
+              {% endif %} {% if error_message2 %}
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <script>
+                window.onload = function () {
+                  Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "{{ error_message2 }}",
+                  });
+                };
+              </script>
+              {% endif %}
+              <!-- Campo 2 del paso 3 -->
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input
+                  type="number"
+                  placeholder="Celular"
+                  id="celular"
+                  name="celular"
+                  required
+                />
+              </div>
+              <!-- Campo 2 del paso 3-->
+
+              <!-- Campo 3 del paso 3 -->
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  placeholder="Direccion"
+                  id="direccion"
+                  name="direccion"
+                  required
+                />
+              </div>
+              <!-- Campo 3 del paso 3-->
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  placeholder="Imagen"
+                  id="img_paciente"
+                  name="img_paciente"
+                  required
+                />
+              </div>
+              <!-- Campo 4 del paso 3-->
+              <!--<div class="input-field">
+                <i class="fas fa-user"></i>
+                <input
+                  type="email"
+                  placeholder="Correo"
+                  id="correo"
+                  name="correo"
+                  required
+                />
+              </div>-->
+              <!-- Campo 4 del paso 3-->
+              <!-- Campo 5 del paso 3-->
+
+              <!-- Campo 5 del paso 3-->
+
+              <!-- Contenido del último paso -->
+              <input
+                type="button"
+                class="btn prev-step"
+                value="Anterior"
+                data-step="2"
+              />
+              <input type="submit" class="btn" value="Registrarse" />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>¿Eres nuevo?</h3>
+            <p>Regístrate para acceder a más servicios</p>
+            <button class="btn transparent" id="sign-up-btn">Continuar</button>
+          </div>
+          <img src="/static/img/logo1.png" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>¿Uno de nosotros?</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+              laboriosam ad deleniti.
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Iniciar sesión
+            </button>
+          </div>
+          <img src="/static/img/logo1.png" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/validar.js"></script>
+  </body>
+</html>

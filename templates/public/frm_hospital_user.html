@@ -1,0 +1,120 @@
+{% include 'public/head_user.html' %}
+<!-- start banner Area -->
+<section class="about-banner relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="about-content col-lg-12">
+        <h1 class="text-white">Hospitales</h1>
+        <p class="text-white link-nav">
+          <a href="index.html">Inicio </a>
+          <span class="lnr lnr-arrow-right"></span>
+          <a href="hotels.html"> Hospitales</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End banner Area -->
+
+<!-- Start destinations Area -->
+<section class="destinations-area section-gap">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="menu-content pb-40 col-lg-8">
+        <div class="title text-center">
+          <h1 class="mb-10">Hospitales Básicos de la ciudad de El Alto</h1>
+          <p>
+            La ciudad de el Alto cuenta con 7 hospitales básicos de segundo y
+            tercer nivel. Los hospitales de segundo nivel son una red de
+            hospitales generales que dan atención a la mayoría de los
+            padecimientos cuando se requiere hospitalización o atención de
+            urgencias. Brindan cuatro especialidades principales: cirugía
+            general, medicina interna, pediatría y gineco-obstetricia. Los
+            hospitales de tercer nivel son hospitales de referencia o altamente
+            especializados, que cuentan con gran número de especialistas en
+            diferentes áreas, como cardiólogos, dermatólogos, psiquiatras,
+            neurólogos y nefrólo, entre otros. También disponen de tecnología
+            avanzada y equipos especializados para atender problemas de salud
+            que requieren un mayor conocimiento o tecnología específica, como el
+            cáncer, las enfermedades cardiovasculares, las enfermedades
+            neurológicas, las enfermedades renales, etc.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--<div>
+      {% set columna = 10 %}
+      {% for row in datah %}
+        {% set dato = row[columna] %}
+      
+            <img src="/static/img/hospitales/{{dato}}" alt="" />
+          
+      </div>
+      {% endfor %}
+    </div>-->
+
+    <div class="row">
+      {% set columna = 10 %} {% for row in datah %} {% set dato = row[columna]%}
+      <div class="col-lg-4">
+        <div class="single-destinations">
+          <div class="thumb">
+            <img src="/static/img/hospitales/{{dato}}" alt="" />
+          </div>
+          <div class="details">
+            <h4 class="d-flex justify-content-between">
+              <span>{{ row[4] }}</span>
+              <div class="star">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+              </div>
+            </h4>
+
+            <ul class="package-list">
+              <li class="d-flex justify-content-between align-items-center">
+                <span>Celular o Teléfono</span>
+                <span>{{ row[6] }}</span>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <span>Nivel</span>
+                <span>{{ row[7] }}</span>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <span>Director del Hospital</span>
+                <span>{{ row[8] }}</span>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <span>Horario de Atención</span>
+                <span>{{ row[9] }}</span>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <span>Dirección</span>
+                <span>{{ row[5] }}</span>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <span>Ver Especialidad</span>
+                <a
+                  href="{{ url_for('ver_especialidad', id=row[0]) }}"
+                  class="price-btn"
+                  >Ver</a
+                >
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <span>Ver Ubicacion</span>
+                <a href="" class="price-btn">Ver</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- End destinations Area -->
+
+{% include 'public/foot.html' %}

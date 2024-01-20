@@ -1,0 +1,143 @@
+var json_hospitaldos_1 = {
+  type: "FeatureCollection",
+  name: "hospitaldos_1",
+  crs: { type: "name", properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        gid: 2.0,
+        latitud: "-16.545696646322128",
+        longitud: "-68.20075507564249",
+        nombre: "Hospital Municipal Modelo Corea",
+        direccion:
+          "Avenida Ladislao Cabrera, 7 de Septiembre, El Alto, Pedro Domingo Murillo, La Paz, Bolivia",
+        celular: 22851413.0,
+        nivel: "Tercer",
+        hora_inicio: "24:00:00-04",
+        hora_fin: "23:59:00-04",
+        nombre_director: "Leonora Vizcarra",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [-68.200755075642491, -16.545696646322128],
+      },
+    },
+    {
+      type: "Feature",
+      properties: {
+        gid: 3.0,
+        latitud: "-16.52610554232341",
+        longitud: "-68.22319704680736",
+        nombre: "Hospital del Sur",
+        direccion: "Esquina, Av Satélite &, C. 6 Diego de Portugal, El Alto",
+        celular: 73088487.0,
+        nivel: "Tercer",
+        hora_inicio: "24:00:00-04",
+        hora_fin: "23:59:00-04",
+        nombre_director: "Alex Andrade",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [-68.223197046807357, -16.52610554232341],
+      },
+    },
+    {
+      type: "Feature",
+      properties: {
+        gid: 4.0,
+        latitud: "-16.49008678741523",
+        longitud: "-68.2043722928342",
+        nombre: "Hospital Del Norte",
+        direccion: "Zona Rio Seco El alto, Av Juan Pablo II",
+        celular: 22864070.0,
+        nivel: "Tercer",
+        hora_inicio: "24:00:00-04",
+        hora_fin: "23:59:00-04",
+        nombre_director: "Ramiro Narváez",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [-68.204372292834194, -16.49008678741523],
+      },
+    },
+    {
+      type: "Feature",
+      properties: {
+        gid: 5.0,
+        latitud: "-16.522234796742364",
+        longitud: "-68.15358913146545",
+        nombre: "Hospital Boliviano Holandés",
+        direccion: "Av. Caquingora, El Alto",
+        celular: 73088487.0,
+        nivel: "Tercer",
+        hora_inicio: "24:00:00-04",
+        hora_fin: "23:59:00-04",
+        nombre_director: "Rafael Quevedo",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [-68.153589131465452, -16.522234796742364],
+      },
+    },
+    {
+      type: "Feature",
+      properties: {
+        gid: 6.0,
+        latitud: "-16.49384994747487",
+        longitud: "-68.187824500825",
+        nombre: "Hospital Los Andes",
+        direccion:
+          "Final Los Andes C. Arturo Valle # 3748 esq. Balboa, El Alto, Bolivia",
+        celular: 22841516.0,
+        nivel: "Segundo",
+        hora_inicio: "24:00:00-04",
+        hora_fin: "23:59:00-04",
+        nombre_director: "Svenka Gonzales",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [-68.187824500825002, -16.493849947474871],
+      },
+    },
+    {
+      type: "Feature",
+      properties: {
+        gid: 7.0,
+        latitud: "-16.55700608479904",
+        longitud: "-68.19283073146474",
+        nombre: "Hospital Corazón de Jesús",
+        direccion: "Zona V. Jesus Del Gran Poder . El Alto, La Paz, Bolivia",
+        celular: 76777639.0,
+        nivel: "Tercer",
+        hora_inicio: "24:00:00-04",
+        hora_fin: "23:59:00-04",
+        nombre_director: "Mariuxi Zurita",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [-68.192830731464738, -16.557006084799038],
+      },
+    },
+    {
+      type: "Feature",
+      properties: {
+        gid: 8.0,
+        latitud: "-16.497845315908982",
+        longitud: "-68.17426840528212",
+        nombre: "Clínica San Martín de Porres",
+        direccion:
+          "Av Alfonso Ugarte 123, Zona 16 De Julio, \nLa Paz, Departamento de La Paz",
+        celular: 22840456.0,
+        nivel: "Segundo",
+        hora_inicio: "24:00:00-04",
+        hora_fin: "23:59:00-04",
+        nombre_director: "Alexander Puma",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [-68.17426840528212, -16.497845315908982],
+      },
+    },
+  ],
+};

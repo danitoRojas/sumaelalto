@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Remixicon CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css"
+      crossorigin=""
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/styles.css" />
+
+    <title>Registro SUMA</title>
+  </head>
+  <body>
+    <div class="login">
+      <img src="/static/img/about-img.jpg" alt="image" class="login__bg" />
+      <form method="POST" action="{{url_for('agregar')}}" class="login__form">
+        <h1 class="login__title">Registro SUMA</h1>
+
+        <!-- Nombre -->
+        <div class="login__inputs mb-3">
+          <div class="login__box">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input
+              type="text"
+              class="login__input form-control"
+              id="nombre"
+              name="nombre"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Apellidos -->
+        <div class="login__inputs mb-3">
+          <div class="login__box">
+            <label for="apellidos" class="form-label">Apellidos:</label>
+            <input
+              type="text"
+              class="login__input form-control"
+              id="apellidos"
+              name="apellidos"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Carnet de Identidad -->
+        <div class="login__inputs mb-3">
+          <div class="login__box">
+            <label for="ci" class="form-label">Carnet de Identidad:</label>
+            <input
+              type="text"
+              class="login__input form-control"
+              id="ci"
+              name="ci"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Fecha de Nacimiento -->
+        <div class="login__inputs mb-3">
+          <div class="login__box">
+            <label for="fecha_nacimiento" class="form-label"
+              >Fecha de Nacimiento:</label
+            >
+            <input
+              type="date"
+              class="login__input form-control"
+              id="fecha_nacimiento"
+              name="fecha_nacimiento"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Género -->
+        <div class="login__inputs mb-3">
+          <div class="login__box">
+            <input
+              type="radio"
+              id="genero_f"
+              name="genero"
+              value="F"
+              required
+            />
+            <label for="genero_f">Femenino</label>
+            <br />
+            <input
+              type="radio"
+              id="genero_m"
+              name="genero"
+              value="M"
+              required
+            />
+            <label for="genero_m">Masculino</label>
+          </div>
+        </div>
+
+        <!-- Celular -->
+        <div class="login__inputs mb-3">
+          <div class="login__box">
+            <label for="celular" class="form-label">Celular:</label>
+            <input
+              type="text"
+              class="login__input form-control"
+              id="celular"
+              name="celular"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Dirección -->
+        <div class="login__inputs mb-3">
+          <div class="login__box">
+            <label for="direccion" class="form-label">Dirección:</label>
+            <input
+              type="text"
+              class="login__input form-control"
+              id="direccion"
+              name="direccion"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Correo -->
+        <div class="login__inputs mb-3">
+          <div class="login__box">
+            <label for="correo" class="form-label">Correo:</label>
+            <input
+              type="email"
+              class="login__input form-control"
+              id="correo"
+              name="correo"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Tipo de usuario -->
+        <div class="login__inputs mb-3">
+          <div class="login__box">
+            <label for="id_usuario" class="form-label">Tipo de usuario:</label>
+            <input
+              type="number"
+              class="login__input form-control"
+              id="id_usuario"
+              name="id_usuario"
+              required
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="login__button btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

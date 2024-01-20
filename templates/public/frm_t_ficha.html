@@ -1,0 +1,100 @@
+{% include 'public/head_user.html' %}
+
+<!-- start banner Area -->
+<section class="about-banner relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="about-content col-lg-12">
+        <h1 class="text-white">Fichas</h1>
+        <p class="text-white link-nav">
+          <a href="/templates/public/index.html">Inicio </a>
+          <span class="lnr lnr-arrow-right"></span>
+          <a href="about.html"> Fichas</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End banner Area -->
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Responsive HTML Table With Pure CSS - Web Design/UI Design</title>
+<link rel="stylesheet" href="/static/css/tabla.css" />
+
+<section class="seccion1">
+  <main class="table">
+    <section class="table__header">
+      <h1>Mis Turnos</h1>
+      <div>
+        <a href="/formulario_ficha" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-circle-plus"></i> Reservar Cita Médica
+        </a>
+      </div>
+      <div class="input-group">
+        <input type="search" placeholder="Search Data..." />
+        <!--<img src="/static/images/search.png" alt="" />-->
+      </div>
+      <div class="export__file">
+        <label
+          for="export-file"
+          class="export__file-btn"
+          title="Export File"
+        ></label>
+        <input type="checkbox" id="export-file" />
+        <div class="export__file-options">
+          <label>Export As &nbsp; &#10140;</label>
+          <label for="export-file" id="toPDF"
+            >PDF <img src="/static/images/pdf.png" alt=""
+          /></label>
+          <label for="export-file" id="toJSON"
+            >JSON <img src="/static/images/json.png" alt=""
+          /></label>
+          <label for="export-file" id="toCSV"
+            >CSV <img src="/static/images/csv.png" alt=""
+          /></label>
+          <label for="export-file" id="toEXCEL"
+            >EXCEL <img src="/static/images/excel.png" alt=""
+          /></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="table__body">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha Atención <span class="icon-arrow">&UpArrow;</span></th>
+            <th>Fecha Registro <span class="icon-arrow">&UpArrow;</span></th>
+            <th>
+              Nombre del Hospital <span class="icon-arrow">&UpArrow;</span>
+            </th>
+            <th>Especialidad <span class="icon-arrow">&UpArrow;</span></th>
+            <th>Nombre Paciente <span class="icon-arrow">&UpArrow;</span></th>
+            <th>
+              Horario de Atención <span class="icon-arrow">&UpArrow;</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in dataf %}
+          <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+
+            <!-- Add more cells as needed -->
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+</section>
+
+{% include 'public/foot.html' %}

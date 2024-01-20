@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css"
+      crossorigin=""
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="/static/css/styles.css" />
+
+    <title>Login form - Bedimcode</title>
+  </head>
+  <body>
+    <div class="login">
+      <img src="/static/img/about-img.jpg" alt="image" class="login__bg" />
+
+      <form action="acceso-login" method="post" class="login__form">
+        <h1 class="login__title">Ingresar</h1>
+
+        <div class="login__box">
+          <input
+            type="email"
+            placeholder="Ingrese su Correo"
+            required
+            class="login__input form-control"
+            id="exampleInputEmail1"
+            name="txtCorreo"
+          />
+          <i class="ri-mail-fill"></i>
+        </div>
+        <br />
+
+        <div class="login__box">
+          <input
+            type="password"
+            placeholder="Contraseña"
+            class="login__input form-control"
+            id="exampleInputPassword1"
+            name="txtPassword"
+            required
+          />
+          <i class="ri-lock-2-fill"></i>
+        </div>
+
+        <div class="login__check">
+          <div class="login__check-box">
+            <input type="checkbox" class="login__check-input" id="user-check" />
+            <label for="user-check" class="login__check-label">recordar</label>
+          </div>
+
+          <a href="#" class="login__forgot">¿Has olvidado tu contraseña?</a>
+        </div>
+
+        <button type="submit" class="login__button">Ingresar</button>
+
+        <div class="login__register">
+          ¿No tines una cuenta? <a href="/registro">Registrate</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

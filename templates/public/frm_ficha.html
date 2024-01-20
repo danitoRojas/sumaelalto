@@ -1,0 +1,68 @@
+{% include 'public/head.html' %}
+<!-- start banner Area -->
+<section class="about-banner relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="about-content col-lg-12">
+        <h1 class="text-white">Fichas</h1>
+        <p class="text-white link-nav">
+          <a href="index.html">Inicio </a>
+          <span class="lnr lnr-arrow-right"></span>
+          <a href="hotels.html"> Fichas</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End banner Area -->
+
+<section class="destinations-area section-gap">
+  <div class="container">
+    <div>
+      <a href="/formulario_ficha" class="btn btn-primary btn-sm">
+        <i class="fa-solid fa-circle-plus"></i> Nueva Ficha
+      </a>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Fecha Atención</th>
+          <th>Fecha Registro</th>
+          <th>Nombre del Hospital</th>
+          <th>Especialidad</th>
+          <th>ID_pacientes</th>
+          <th>Nombre Paciente</th>
+          <th>Activo</th>
+
+          <!-- Add more columns as needed -->
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in dataf %}
+        <tr>
+          <td>{{ row[0] }}</td>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+          <td>{{ row[5] }}</td>
+          <td>{{ row[6] }}</td>
+
+          <!-- Add more cells as needed -->
+
+          <td>
+            <form action="{{url_for('eliminar_ficha')}}" method="POST">
+              <input type="hidden" name="id" value="{{row[0]}}" />
+              <button class="button is-danger">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% include 'public/foot.html' %}

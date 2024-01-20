@@ -1,0 +1,88 @@
+{% include 'public/head.html' %}
+
+<!-- start banner Area -->
+<section class="about-banner relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="about-content col-lg-12">
+        <h1 class="text-white">Pacientes</h1>
+        <p class="text-white link-nav">
+          <a href="/templates/public/index.html">Inicio </a>
+          <span class="lnr lnr-arrow-right"></span>
+          <a href="about.html"> Pacientes</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End banner Area -->
+
+<section class="destinations-area section-gap">
+  <!-- para que se baje -->
+  <div class="container">
+    <!-- para que se baje -->
+    <body>
+      <div>
+        <a href="/formulario" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-circle-plus"></i> Nuevo Paciente
+        </a>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDOS</th>
+            <th>CI</th>
+            <th>FECHA DE NACIMIENTO</th>
+            <th>GÉNERO</th>
+            <th>CELULAR</th>
+            <th>DIRECCION</th>
+            <th>CORREO</th>
+            <th>ROL</th>
+            <th>CORREO</th>
+            <th>CONTRASEÑA</th>
+            <th>Acciones</th>
+            <!-- Add more columns as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in datax %}
+          <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+            <td>{{ row[7] }}</td>
+            <td>{{ row[8] }}</td>
+            <td>{{ row[9] }}</td>
+            <td>{{ row[10] }}</td>
+            <td>{{ row[11] }}</td>
+            <!-- Add more cells as needed -->
+            <td>
+              {# Pasar el id (lo que hay en juego[0] #}
+              <a
+                href="{{url_for('editar_paciente', id=row[0])}}"
+                class="button is-info"
+                >Editar</a
+              >
+            </td>
+            <td>
+              <form action="{{url_for('eliminar')}}" method="POST">
+                <input type="hidden" name="id" value="{{row[0]}}" />
+                <button class="button is-danger">Eliminar</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </body>
+  </div>
+</section>
+
+{% include 'public/foot.html' %}
